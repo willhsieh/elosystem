@@ -1,5 +1,7 @@
 import csv
 
+# https://ryanmadden.net/posts/Adapting-Elo
+
 # Expected probability for p1 to win vs. p2
 def expected(p1, p2):
     probability = 1 / (1 + 10 ** ( (p2 - p1) / 400) )

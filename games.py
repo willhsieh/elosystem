@@ -7,6 +7,7 @@ def rankAll():
     df = pd.read_csv("gameslog.csv")
     sorted_df = df.sort_values(by=["Rating"], ascending = False)
     sorted_df.to_csv("gameslog.csv", index = False)
+    return sorted_df
     
 # Add game
 def addGame():
@@ -16,7 +17,6 @@ def addGame():
     lossplayers = []
     lossacs = []
     lossratings = []
-
     newratings = []
     
     # Winning team
@@ -58,12 +58,21 @@ def addGame():
         count += 1
 
     # Update file
-    # TODO: this
     df = pd.read_csv("gameslog.csv")
+    count = 0
     for i in winplayers:
-        selected = df.loc[df['Player'] == i]
-        df.at[selected, 'Rating'] = newratings[i]
+        row = df[df['Player'] == i].index[0]
+        df.at[row, 'Rating'] = newratings[count]
+        df.at[row, 'Games'] = df.at[row, 'Games'] + 1
+        count += 1
+    for i in lossplayers:
+        row = df[df['Player'] == i].index[0]
+        df.at[row, 'Rating'] = newratings[count]
+        df.at[row, 'Games'] = df.at[row, 'Games'] + 1
+        count += 1
+    df.to_csv('gameslog.csv', index = False)
 
+    return
 
 
 # Returns a player's rating given their name
@@ -72,6 +81,7 @@ def lookupRating(player):
     selected = df.loc[df['Player'] == player]
     return int((selected['Rating'].to_string(index = False)), base=10)
 
-lookupRating("lime")
-
-
+def printLeaderboard():
+    df = pd.read_csv("gameslog.csv")
+    print(df)
+    return
