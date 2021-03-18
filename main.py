@@ -1,19 +1,9 @@
-from Game import readGame
-from Game import addGame
-from Players import Players
-from Players import SelectPlayer
+from ratings import *
+from games import *
+
+rankAll()
+newratings = addGame()
+
+updateRatings([1228, 1045, 985, 914, 826, 1100, 889, 814, 669, 489])
 
 
-
-addGame()
-
-# print('a: add game, l: list leaderboard, p: list players')
-# action = input()
-# if action == 'a':
-#     addGame()
-# elif action == 'l':
-#     print('implement this')
-# elif action == 'p':
-#     print('implement this')
-# else:
-#     print('Please enter a valid character')
