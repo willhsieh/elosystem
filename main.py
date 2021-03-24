@@ -1,23 +1,24 @@
 from ratings import *
 from games import *
+from matchmaking import *
 
+def main():
+    print("Type 'a' to add game, 'l' to show leaderboard, 'm' to make teams")
+    action = input()
+    if action == 'a':
+        addGame()
+    elif action == 'l':
+        printLeaderboard()
+    elif action == 'm':
+        make()
+    else:
+        print("Enter a valid character")
 
-addGame()
-rankAll()
-printLeaderboard()
+if __name__ == "__main__":
+    main()
 
 
 # TODO: split addGame into multiple functions
-# winplayers = []
-# winacs = []
-# winratings = []
-# lossplayers = []
-# lossacs = []
-# lossratings = []
-
-# newratings = []
-
-
 # def main():
 #     # Initialize arrays
 #     winplayers = [] # list of winning players

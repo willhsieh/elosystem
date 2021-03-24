@@ -72,6 +72,7 @@ def addGame():
         count += 1
     df.to_csv('gameslog.csv', index = False)
 
+    rankAll()
     return
 
 
