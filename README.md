@@ -19,6 +19,10 @@ I plan to add more features (e.g. confidence level with more games, improved inp
 
 I used [this article](https://ryanmadden.net/posts/Adapting-Elo) for the main math logic of calculating the rating and also a lot of [pandas documentation](https://pandas.pydata.org/docs/).
 
+### Changelog
+
+- 3/23/21: added team creation system
+
 ### License
 
 [MIT License](https://opensource.org/licenses/MIT)
